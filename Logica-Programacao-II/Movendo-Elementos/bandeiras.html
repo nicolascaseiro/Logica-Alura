@@ -1,0 +1,75 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+  
+    function desenhaBandeiraBrasil() {
+    
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle="green";
+        pincel.fillRect(0, 0, 600, 400);
+
+        pincel.fillStyle="yellow";
+        pincel.beginPath();
+        pincel.moveTo(300, 50);
+        pincel.lineTo(50, 200);
+        pincel.lineTo(550, 200);
+        pincel.fill();
+
+        pincel.beginPath();
+        pincel.moveTo(50, 200);
+        pincel.lineTo(300, 350);
+        pincel.lineTo(550, 200);
+        pincel.fill();
+
+        pincel.fillStyle="darkblue";
+        pincel.beginPath();
+
+        pincel.arc(300, 200, 100, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaBandeiraAfrica() {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = "#009246";
+        pincel.fillRect(0, 0, 600, 133);
+
+        pincel.fillStyle = "#F1C40F";
+        pincel.fillRect(0, 133, 600, 133);
+
+        pincel.fillStyle = "#CE1126";
+        pincel.fillRect(0, 266, 600, 134);
+
+        pincel.beginPath();
+        pincel.moveTo(300, 75);
+        pincel.lineTo(343, 162);
+        pincel.lineTo(443, 162);
+        pincel.lineTo(360, 215);
+        pincel.lineTo(386, 303);
+        pincel.lineTo(300, 260);
+        pincel.lineTo(214, 303);
+        pincel.lineTo(240, 215);
+        pincel.lineTo(157, 162);
+        pincel.lineTo(257, 162);
+        pincel.closePath();
+        pincel.fillStyle = "#FFFFFF";
+        pincel.fill();
+        }
+
+        var mostraBrasil = true;
+
+        function trocaBandeira() {
+            if(mostraBrasil){
+                desenhaBandeiraBrasil();
+            } else {
+                desenhaBandeiraAfrica();
+            }
+            mostraBrasil = !mostraBrasil;
+        }
+
+        setInterval(trocaBandeira, 3000)
+    
+</script>
