@@ -1,0 +1,29 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+  
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'purple';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaNaTela(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        var shift = evento.shiftKey;
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        if(shift){
+            pincel.arc(x, y, 30, 0, 2 * Math.PI);
+        } else {
+            pincel.arc(x, y, 10, 0, 2 * Math.PI);
+        }
+        pincel.fill();
+        console.log(x + ", " + y);
+
+    } 
+
+    tela.onclick = desenhaNaTela;
+    
+</script>
