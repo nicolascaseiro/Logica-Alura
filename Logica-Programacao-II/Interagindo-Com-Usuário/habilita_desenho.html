@@ -1,0 +1,39 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+  
+    var paleta = document.querySelector("input");
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'purple';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var pincelAtivo = false;
+
+    function desenhaNaTela(evento) {
+
+        if(pincelAtivo){
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = paleta.value;
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();  
+        }
+        console.log(x + ',' + y);
+    } 
+
+    tela.onmousemove = desenhaNaTela;
+
+    function habilitaDesenho(evento){
+        pincelAtivo = true;
+    }
+
+    function desabilitaDesenho(evento){
+        pincelAtivo = false;
+    }
+
+    tela.onmousedown = habilitaDesenho;
+    tela.onmouseup = desabilitaDesenho;
+    
+</script>
