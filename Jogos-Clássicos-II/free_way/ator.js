@@ -7,7 +7,7 @@ let colidiu = false;
 let pontosOponente = 0;
 
 function mostraAtor(){
-  image(imagemAtor, xAtor, yAtor, 30, 30); //imagem, x, y, comprimento, altura
+  image(imagemAtor, xAtor, yAtor, 30, 30);
 }
 function movimentaAtor(){
   if(keyIsDown(UP_ARROW)){
